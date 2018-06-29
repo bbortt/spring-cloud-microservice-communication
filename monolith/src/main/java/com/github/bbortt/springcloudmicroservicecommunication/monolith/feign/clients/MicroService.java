@@ -10,4 +10,7 @@ public interface MicroService {
 
 	@RequestMapping({ "/throw-error" })
 	String forceError();
+
+	@RequestMapping({ "/process-something/a-bit-longer" })
+	String processSomethingRealBig();
 }

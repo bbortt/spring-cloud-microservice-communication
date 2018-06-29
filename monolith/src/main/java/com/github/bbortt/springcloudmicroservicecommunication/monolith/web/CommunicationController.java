@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.github.bbortt.springcloudmicroservicecommunication.monolith.feign.clients.MicroService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.exception.HystrixTimeoutException;
 
 @RestController
 @RequestMapping("/communicate")
@@ -19,6 +20,20 @@ public class CommunicationController {
 	@GetMapping("/process-something")
 	public String getSomethingProcessed() {
 		return microService.processSomething();
+	}
+
+	@GetMapping("/process-something-real-big")
+	@HystrixCommand(fallbackMethod = "catchRealBigStuffTimeout")
+	public String getSomethingRealBigProcessed() {
+		return microService.processSomethingRealBig();
+	}
+
+	public String catchRealBigStuffTimeout(Throwable e) {
+		if (e instanceof HystrixTimeoutException) {
+			return "I want wait for this s***!! AUTOBOTS - ROLLBACK!";
+		}
+
+		throw new IllegalArgumentException(e);
 	}
 
 	@GetMapping("/error-without-hystrix")
