@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/")
-public class IndexController {
+@RequestMapping("/process-something")
+public class ProcessingController {
 	@GetMapping
-	public String getHelloWorldMessage() {
-		return "Hello, I'm a microservice.";
+	public String processSomething() {
+		return "Microservice did successfully process some data.";
 	}
 }
