@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.bbortt.spring-cloud-microservice-communication</groupId>
-    <artifactId>eureka-service-discovery</artifactId>
+    <artifactId>zuul-entry-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>eureka-service-discovery</name>
-    <description>Spring cloud service discovery.</description>
+    <name>zuul-entry-server</name>
+    <description>Spring cloud entry server.</description>
 
     <parent>
         <groupId>com.github.bbortt</groupId>
@@ -21,7 +21,7 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
         </dependency>
     </dependencies>
 </project>
