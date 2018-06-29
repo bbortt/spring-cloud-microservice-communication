@@ -1,9 +1,9 @@
 package com.github.bbortt.springcloudmicroservicecommunication.monolith;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.SpringCloudApplication;
 
-@SpringBootApplication
+@SpringCloudApplication
 public class MonolithApplication {
 
 	public static void main(String[] args) {
